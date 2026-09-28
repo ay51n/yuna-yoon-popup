@@ -5,6 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="description" content="Yuna Yoon K-beauty pop-up store. Register for your free skin test.">
 <title>Yuna Yoon</title>
+<link rel="icon" type="image/png" href="favicon.png">
+<meta property="og:image" content="logo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500&family=Nunito:wght@600;700;800&family=Gowun+Dodum&display=swap">
@@ -37,7 +39,7 @@ p{margin:0}
 header.site{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--bg);border-bottom:1px solid var(--line)}
 .hdr{display:flex;align-items:center;gap:24px;min-height:70px}
 .brand{display:flex;align-items:center;gap:10px}
-.brand svg{width:46px;height:46px;flex:none}
+.brand .logo{width:46px;height:46px;flex:none}
 .wordmark{font-family:var(--round);font-weight:800;font-size:22px;color:var(--logo);letter-spacing:-.01em;line-height:1}
 .wordmark small{display:block;font-family:var(--kr);font-weight:400;font-size:11px;letter-spacing:.2em;color:var(--muted);margin-top:3px}
 nav.main{display:flex;gap:26px;margin-left:auto;font-size:14px}
@@ -83,7 +85,7 @@ nav.main a:hover{color:var(--mauve);border-color:var(--dusty)}
 .card{background:var(--surface);border:1px solid var(--btn-edge);box-shadow:8px 8px 0 var(--rose);padding:28px;border-radius:6px}
 .card form{display:grid;gap:14px}
 .sc-head{display:flex;gap:14px;align-items:center}
-.sc-head svg{width:54px;height:54px;flex:none}
+.sc-head .logo{width:54px;height:54px;flex:none}
 .sc-head h2{font-size:24px;line-height:1.15}
 .sc-head p{font-size:13px;color:var(--muted)}
 .field{display:grid;gap:5px;min-width:0}
@@ -98,7 +100,7 @@ nav.main a:hover{color:var(--mauve);border-color:var(--dusty)}
 .card .btn{font-size:14px;padding:13px 34px;justify-self:stretch;text-align:center}
 .fine{font-size:11.5px;color:var(--muted)}
 .done{display:grid;gap:12px;justify-items:center;text-align:center;padding-block:14px}
-.done svg{width:96px;height:96px}
+.done .logo{width:96px;height:96px}
 .done h2{font-size:28px}
 .done p{color:var(--muted);max-width:34ch}
 .ticket{border:1px dashed var(--dusty);border-radius:6px;padding:12px 22px;display:grid;gap:2px;background:var(--bg)}
@@ -268,7 +270,7 @@ footer{background:var(--band);border-top:1px solid var(--line)}
 <header class="site">
   <div class="wrap hdr">
     <a class="brand" href="#top" aria-label="Yuna Yoon home">
-      <svg><use href="#mascot"/></svg>
+      <img class="logo" src="logo.png" alt="">
       <span class="wordmark">yuna yoon<small>유나 윤 · K-BEAUTY POP-UP</small></span>
     </a>
     <nav class="main" id="nav" aria-label="Main">
@@ -309,7 +311,7 @@ footer{background:var(--band);border-top:1px solid var(--line)}
       <div class="card">
         <form id="regForm" novalidate>
           <div class="sc-head">
-            <svg aria-hidden="true"><use href="#mascot"/></svg>
+            <img class="logo" src="logo.png" alt="">
             <div><h2>Register for the pop-up</h2><p>Free entry + free 10-minute skin test</p></div>
           </div>
           <div class="row2">
@@ -331,7 +333,7 @@ footer{background:var(--band);border-top:1px solid var(--line)}
         </form>
 
         <div class="done" id="done" hidden>
-          <svg aria-hidden="true"><use href="#mascot"/></svg>
+          <img class="logo" src="logo.png" alt="">
           <h2>See you there, <span id="dName"></span>!</h2>
           <p>Your free skin test is booked. Show this code at the entrance.</p>
           <div class="ticket"><small>Your code</small><b id="dCode"></b><span id="dWhen"></span></div>
@@ -456,7 +458,7 @@ footer{background:var(--band);border-top:1px solid var(--line)}
 
 <footer>
   <div class="wrap foot">
-    <a class="brand" href="#top"><svg><use href="#mascot"/></svg><span class="wordmark">yuna yoon<small>유나 윤 · K-BEAUTY POP-UP</small></span></a>
+    <a class="brand" href="#top"><img class="logo" src="logo.png" alt=""><span class="wordmark">yuna yoon<small>유나 윤 · K-BEAUTY POP-UP</small></span></a>
     <ul><li><a href="#register">Register</a></li><li><a href="#products">Products</a></li><li><a href="#info">Event info</a></li><li><a href="#faq">FAQ</a></li><li><a href="#top">Instagram</a></li><li><a href="#top">TikTok</a></li></ul>
   </div>
   <div class="wrap legal">© 2026 Yuna Yoon. Korean skincare pop-up store.</div>
