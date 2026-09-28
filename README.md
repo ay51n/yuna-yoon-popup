@@ -1,6 +1,6 @@
 # Yuna Yoon · K-beauty pop-up
 
-Landing page for the Yuna Yoon Korean skincare pop-up store (17–18 October 2026):
+Landing page for the Yuna Yoon Korean skincare pop-up store at Miku's House (1 March – 30 April 2027):
 free skin-test registration, a registration countdown, and a preview of the products and brands we're bringing.
 
 Everything is in one file, `index.html`. No build step.
@@ -9,7 +9,7 @@ Everything is in one file, `index.html`. No build step.
 
 At the top of the `<script>` in `index.html`:
 
-- `REG_CLOSES` – registration deadline (countdown target)
+- `OPENS` / `CLOSES` – opening and closing date and time (the countdown uses these)
 - `SLOTS` – skin-test time slots
 - `FORM_ENDPOINT` – where registrations are sent (see below)
 
