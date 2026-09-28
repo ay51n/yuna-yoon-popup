@@ -90,6 +90,16 @@ nav.main a:hover{color:var(--mauve);border-color:var(--dusty)}
 .bubble{position:absolute;top:34px;right:calc(100% + 4px);width:max-content;max-width:230px;background:var(--surface);border:1.5px solid var(--btn-edge);border-radius:18px;padding:10px 16px;font-family:var(--round);font-weight:700;font-size:15px;line-height:1.35;color:var(--logo);box-shadow:4px 4px 0 var(--rose)}
 .bubble .kr{display:block;font-weight:400;font-size:12px;color:var(--muted);margin-top:2px}
 .bubble::after{content:"";position:absolute;right:-9px;top:26px;width:14px;height:14px;background:var(--surface);border-right:1.5px solid var(--btn-edge);border-top:1.5px solid var(--btn-edge);transform:rotate(45deg)}
+@media (min-width:861px){
+  .hero-grid{align-items:start;padding-block:36px 56px}
+  .hero-copy{padding-top:clamp(56px,6.5vw,92px)}
+  .card-wrap{padding-top:clamp(84px,9vw,108px)}
+  .card-wrap::before{top:-20px}
+  .yuna{width:clamp(150px,16vw,205px);right:22px}
+  .card-wrap .card{padding-top:38px}
+  .sc-head{padding-right:clamp(140px,16vw,205px);min-height:clamp(74px,7.5vw,98px);align-items:flex-start}
+  .bubble{top:2px}
+}
 @keyframes bob{0%,100%{transform:translateY(0) rotate(0)}50%{transform:translateY(-7px) rotate(-1.5deg)}}
 @media (prefers-reduced-motion:reduce){.yuna img{animation:none}}
 .card{position:relative;background:var(--surface);border:1px solid var(--btn-edge);box-shadow:8px 8px 0 var(--rose);padding:28px;border-radius:6px}
