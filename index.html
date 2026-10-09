@@ -205,16 +205,13 @@ section.block{padding-block:64px}
 @media (max-width:460px){.skins{gap:12px}.skin .pic{padding:14px 10px 8px}.skin .body{padding:12px 12px 16px}.skin h3{font-size:17px}}
 
 /* brands */
-.brands{display:flex;flex-wrap:wrap;justify-content:center;padding:1px 0 0 1px;--cols:6}
-.brand-tile{flex:0 0 calc(100% / var(--cols));background:var(--surface);border:1px solid var(--line);margin:-1px 0 0 -1px;aspect-ratio:4/3;max-width:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;padding:12px;text-align:center}
-.brand-tile b{font-size:17px;line-height:1.15}
-.brand-tile .k{font-family:var(--kr);font-size:11px;color:var(--muted)}
-.bf1{font-family:var(--display);font-weight:500;letter-spacing:.14em;text-transform:uppercase;font-size:15px!important}
-.bf2{font-family:var(--round);font-weight:800}
-.bf3{font-family:var(--display);font-weight:300;letter-spacing:.04em}
-.bf4{font-family:var(--display);font-style:italic}
-@media (max-width:900px){.brands{--cols:4}}
-@media (max-width:560px){.brands{--cols:3}.brand-tile b{font-size:14px}.bf1{font-size:12px!important}}
+.brands{display:flex;flex-wrap:wrap;justify-content:center;padding:1px 0 0 1px;--cols:3;max-width:900px;margin-inline:auto}
+.brand-tile{flex:0 0 calc(100% / var(--cols));background:var(--surface);border:1px solid var(--line);margin:-1px 0 0 -1px;aspect-ratio:16/9;max-width:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;padding:16px;text-align:center;font:inherit;color:inherit;cursor:pointer;transition:background .2s}
+.brand-tile:hover{background:var(--soft)}
+.brand-tile img{max-width:80%;width:auto;object-fit:contain}
+.brand-tile .k{font-family:var(--kr);font-size:12px;color:var(--muted)}
+.brand-tile small{font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--mauve)}
+@media (max-width:560px){.brands{--cols:1;max-width:360px}.brand-tile{aspect-ratio:auto;padding:22px 16px}}
 
 /* pop-up perks */
 .promo{background:var(--band);border-block:1px solid var(--line)}
@@ -225,7 +222,11 @@ section.block{padding-block:64px}
 .perks li{display:flex;gap:10px;align-items:baseline}
 .perks li::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--rose);border:1px solid var(--dusty);flex:none;transform:translateY(-1px)}
 .promo-art{align-self:stretch;position:relative;min-height:260px}
-.promo-art svg{position:absolute;inset:0;width:100%;height:100%}
+.promo-blossoms{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+.snap{position:absolute;margin:0;width:38%;max-width:220px;aspect-ratio:1;background:#fff;border:1px solid var(--line);border-radius:14px;padding:4%;box-shadow:6px 8px 0 var(--rose);transform:rotate(var(--r))}
+.snap img{width:100%;height:100%;object-fit:contain;display:block}
+.snap1{left:6%;top:12%}.snap2{left:34%;top:30%;z-index:2}.snap3{right:4%;top:6%}
+@media (max-width:760px){.promo-art{min-height:240px}.snap{width:36%}}
 @media (max-width:760px){.promo-grid{grid-template-columns:1fr;gap:0}.promo-copy{padding-bottom:8px}}
 
 /* event info + faq */
@@ -602,19 +603,7 @@ const products=[
   {cat:'Serums',name:'TOSOWOONG Alpha Arbutin 2% Rice Serum',origin:'TOSOWOONG',for:'Dark spots, uneven tone',price:'',img:'products/tosowoong-alpha-arbutin-2-rice-serum.webp'},
   {cat:'Moisturisers',name:'TOSOWOONG Arbutin 5% Whitening Cream 50 ml',origin:'TOSOWOONG',for:'Dark spots, dull',price:'',img:'products/tosowoong-arbutin-5-whitening-cream.jpg'},
   {cat:'Moisturisers',name:'TOSOWOONG Panthenol 20 Barrier Cream 50 ml',origin:'TOSOWOONG',for:'Dry, sensitive',price:'',img:'products/tosowoong-panthenol-20-barrier-cream.webp'},
-  {cat:'Moisturisers',name:'TOSOWOONG Hyaluronic Acid 9 Cream 50 ml',origin:'TOSOWOONG',for:'Dry, dehydrated',price:'',img:'products/tosowoong-hyaluronic-acid-9-cream.webp'},
-  {cat:'Cleansers',name:'Rice Water Low-pH Foaming Cleanser 150ml',origin:'Seoul',for:'All skin types',price:'€16',shape:'tube',bg:'#FCECEF',kr:'쌀',en:'RICE',c:{body:'#FFF8F5',cap:'#D9A6A6',label:'#FCECEF'}},
-  {cat:'Toners & Essences',name:'Snail Mucin 96% Power Essence 100ml',origin:'Busan',for:'Dry, dull',price:'€22.50',shape:'pump',bg:'#F4E4D8',kr:'달팽이',en:'SNAIL 96',c:{body:'#FFFFFF',cap:'#8F6B6B',label:'#FCECEF'},tag:'Best seller'},
-  {cat:'Serums',name:'Centella Calming Ampoule 30ml',origin:'Jeju',for:'Sensitive, acne-prone',price:'€24',shape:'dropper',bg:'#F4C2C2',kr:'병풀',en:'CICA',c:{body:'#E9F0E4',cap:'#4A1B4A',label:'#FFF8F5'}},
-  {cat:'Moisturisers',name:'Ginseng Barrier Cream 50ml',origin:'Seoul',for:'Dry, mature',price:'€31',shape:'jar',bg:'#FFF1EA',kr:'인삼',en:'GINSENG',c:{body:'#F4C2C2',cap:'#8F6B6B',label:'#FFF8F5'}},
-  {cat:'Base & Lip',name:'Peach Glow Cushion Foundation SPF 40',origin:'Seoul',for:'Normal, dry',price:'€26',shape:'cushion',bg:'#FCECEF',kr:'복숭아',en:'',c:{body:'#F4C2C2',cap:'#D9A6A6',label:'#FFF8F5'},tag:'New'},
-  {cat:'Masks',name:'Mugwort Soothing Sheet Mask ×10',origin:'Ganghwa',for:'Sensitive, redness',price:'€18',shape:'mask',bg:'#EEF0E6',kr:'쑥',en:'MUGWORT',c:{body:'#D9E2CF',cap:'#8F6B6B',label:'#FFF8F5'}},
-  {cat:'Sun Care',name:'Mild Airy Sun Stick SPF 50+ PA++++',origin:'Seoul',for:'All skin types',price:'€19.50',shape:'stick',bg:'#FFF1EA',kr:'선',en:'SPF50+',c:{body:'#FFFFFF',cap:'#F4C2C2',label:'#FCECEF'}},
-  {cat:'Toners & Essences',name:'Cherry Blossom Brightening Toner 200ml',origin:'Jinhae',for:'Dull, combination',price:'€21',shape:'pump',bg:'#F4C2C2',kr:'벚꽃',en:'SAKURA',c:{body:'#FFF8F5',cap:'#D9A6A6',label:'#FCECEF'},tag:'Pop-up exclusive'},
-  {cat:'Base & Lip',name:'Water Jelly Lip Tint, Rosy Plum',origin:'Seoul',for:'Everyone',price:'€12',shape:'stick',bg:'#FCECEF',kr:'틴트',en:'ROSY',c:{body:'#8F6B6B',cap:'#4A1B4A',label:'#F4C2C2'}},
-  {cat:'Serums',name:'Rice Bran Niacinamide Serum 50ml',origin:'Icheon',for:'Oily, dull',price:'€23',shape:'dropper',bg:'#F4E4D8',kr:'미강',en:'NIACIN 10',c:{body:'#FFF8F5',cap:'#D9A6A6',label:'#FCECEF'}},
-  {cat:'Cleansers',name:'Green Tea Cleansing Oil 200ml',origin:'Boseong',for:'Oily, combination',price:'€20',shape:'pump',bg:'#EEF0E6',kr:'녹차',en:'GREEN TEA',c:{body:'#D9E2CF',cap:'#4A1B4A',label:'#FFF8F5'}},
-  {cat:'Masks',name:'Honey Overnight Sleeping Mask 70ml',origin:'Seoul',for:'Dry, dehydrated',price:'€27',shape:'jar',bg:'#FFE3CF',kr:'꿀',en:'HONEY',c:{body:'#FFF1D6',cap:'#D9A6A6',label:'#FFF8F5'}}
+  {cat:'Moisturisers',name:'TOSOWOONG Hyaluronic Acid 9 Cream 50 ml',origin:'TOSOWOONG',for:'Dry, dehydrated',price:'',img:'products/tosowoong-hyaluronic-acid-9-cream.webp'}
 ];
 const byName=n=>products.find(p=>p.name.startsWith(n));
 function prodCard(p){
@@ -631,6 +620,10 @@ chips.innerHTML=cats.map(c=>`<button type="button" aria-pressed="${c==='All'}">$
 function showCat(c){
   grid.innerHTML=products.filter(p=>c==='All'||p.cat===c).map(prodCard).join('');
   chips.querySelectorAll('button').forEach(b=>b.setAttribute('aria-pressed',b.textContent===c));
+}
+function showBrand(b){
+  grid.innerHTML=products.filter(p=>p.origin===b).map(prodCard).join('');
+  chips.querySelectorAll('button').forEach(x=>x.setAttribute('aria-pressed','false'));
 }
 chips.addEventListener('click',e=>{const b=e.target.closest('button');if(b)showCat(b.textContent);});
 showCat('All');
@@ -649,18 +642,20 @@ $('skins').innerHTML=skins.map(s=>`<div class="skin" style="--tint:${s.tint};--d
   <span class="lbl">Our advisors suggest</span><div class="chips">${s.ing.map(i=>`<span>${i}</span>`).join('')}</div></div></div>`).join('');
 
 /* ---------- brands ---------- */
-const brands=[['Anua','아누아',1],['APLB','에이피엘비',1],['Beauty of Joseon','조선미녀',3],['COSRX','코스알엑스',1],['Etude','에뛰드',2],['Innisfree','이니스프리',3],['Laneige','라네즈',1],['ma:nyo','마녀공장',2],
-  ['Mediheal','메디힐',2],['Missha','미샤',1],['rom&nd','롬앤',4],['Round Lab','라운드랩',3],['SKIN1004','스킨1004',1],['TOSOWOONG','토소웅',1],['Torriden','토리든',3]];
-$('brandGrid').innerHTML=brands.map(b=>`<div class="brand-tile"><b class="bf${b[2]}">${b[0]}</b><span class="k">${b[1]}</span></div>`).join('');
+const brands=[
+  {name:'APLB',kr:'에이피엘비',logo:'logos/aplb.png',h:30},
+  {name:'ma:nyo',kr:'마녀공장',logo:'logos/manyo.svg',h:30},
+  {name:'TOSOWOONG',kr:'토소웅',logo:'logos/tosowoong.png',h:26}
+];
+$('brandGrid').innerHTML=brands.map(b=>{const n=products.filter(p=>p.origin===b.name).length;
+  return `<button type="button" class="brand-tile" data-brand="${b.name}"><img src="${b.logo}" alt="${b.name}" style="height:${b.h}px"><span class="k">${b.kr}</span><small>${n} product${n===1?'':'s'}</small></button>`}).join('');
+$('brandGrid').addEventListener('click',e=>{const t=e.target.closest('[data-brand]');if(!t)return;showBrand(t.dataset.brand);$('products').scrollIntoView({behavior:'smooth'});});
 
 /* ---------- decorative art ---------- */
 $('heroDeco').innerHTML=`${blossom(60,70,2.2,'#F4C2C2')}${blossom(140,40,1.2,'#D9A6A6')}${blossom(1140,520,2.6,'#F4C2C2')}${blossom(1060,560,1.3,'#D9A6A6')}${blossom(620,30,1,'#F4C2C2')}${blossom(40,540,1.6,'#FCECEF')}`;
-$('promoArt').innerHTML=`<svg viewBox="0 0 560 320" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
-  <path d="M60 250 L300 120 L520 210 L280 300z" fill="#FCECEF" stroke="#D9A6A6"/>
-  ${place(byName('Cherry Blossom'),110,40,210)}${place(byName('Peach Glow'),260,110,190)}${place(byName('Mugwort'),370,20,170)}
-  <path d="M40 60 q60 -20 120 30" stroke="#8F6B6B" stroke-width="2" fill="none"/>
-  ${blossom(70,52,1.1,'#F4C2C2')}${blossom(120,64,.9,'#D9A6A6')}${blossom(158,90,1,'#F4C2C2')}${blossom(500,270,1.3,'#F4C2C2')}${blossom(30,260,.9,'#D9A6A6')}
-</svg>`;
+$('promoArt').innerHTML=[['APLB Spicule',-6],['ma:nyo Panthetoin',4],['TOSOWOONG Panthenol',-2]].map(([n,r],i)=>{const p=byName(n);
+  return `<figure class="snap snap${i+1}" style="--r:${r}deg"><img src="${p.img}" alt="${p.name}" loading="lazy"></figure>`}).join('')+
+  `<svg class="promo-blossoms" viewBox="0 0 560 320" preserveAspectRatio="xMidYMid meet" aria-hidden="true">${blossom(40,50,1.3,'#F4C2C2')}${blossom(90,30,.9,'#D9A6A6')}${blossom(520,280,1.4,'#F4C2C2')}${blossom(480,300,.8,'#D9A6A6')}</svg>`;
 
 /* ---------- registration ---------- */
 let db=null,downloads=null,canSee=false,regs=[];
