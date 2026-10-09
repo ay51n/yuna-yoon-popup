@@ -222,8 +222,8 @@ section.block{padding-block:64px}
 .perks li{display:flex;gap:10px;align-items:baseline}
 .perks li::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--rose);border:1px solid var(--dusty);flex:none;transform:translateY(-1px)}
 .promo-art{align-self:stretch;position:relative;min-height:260px}
-.promo-blossoms{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
-.snap{position:absolute;margin:0;width:38%;max-width:220px;aspect-ratio:1;background:#fff;border:1px solid var(--line);border-radius:14px;padding:4%;box-shadow:6px 8px 0 var(--rose);transform:rotate(var(--r))}
+.promo-blossoms{position:absolute;inset:0;z-index:0;width:100%;height:100%;pointer-events:none}
+.snap{position:absolute;z-index:1;margin:0;width:38%;max-width:220px;aspect-ratio:1;background:#fff;border:1px solid var(--line);border-radius:14px;padding:4%;box-shadow:6px 8px 0 var(--rose);transform:rotate(var(--r))}
 .snap img{width:100%;height:100%;object-fit:contain;display:block}
 .snap1{left:6%;top:12%}.snap2{left:34%;top:30%;z-index:2}.snap3{right:4%;top:6%}
 @media (max-width:760px){.promo-art{min-height:240px}.snap{width:36%}}
@@ -645,7 +645,7 @@ $('skins').innerHTML=skins.map(s=>`<div class="skin" style="--tint:${s.tint};--d
 const brands=[
   {name:'APLB',kr:'에이피엘비',logo:'logos/aplb.png',h:30},
   {name:'ma:nyo',kr:'마녀공장',logo:'logos/manyo.svg',h:30},
-  {name:'TOSOWOONG',kr:'토소웅',logo:'logos/tosowoong.png',h:26}
+  {name:'TOSOWOONG',kr:'토소웅',logo:'logos/tosowoong.png',h:36}
 ];
 $('brandGrid').innerHTML=brands.map(b=>{const n=products.filter(p=>p.origin===b.name).length;
   return `<button type="button" class="brand-tile" data-brand="${b.name}"><img src="${b.logo}" alt="${b.name}" style="height:${b.h}px"><span class="k">${b.kr}</span><small>${n} product${n===1?'':'s'}</small></button>`}).join('');
