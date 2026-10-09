@@ -187,22 +187,25 @@ section.block{padding-block:64px}
 
 /* skin types */
 .skinband{background:var(--soft);border-block:1px solid var(--line);padding-block:64px}
-.skins{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
-.skin{background:var(--surface);border:1px solid var(--line);border-radius:18px;overflow:hidden;display:flex;flex-direction:column}
-.skin .pic{background:var(--tint);display:grid;place-items:center;padding:22px 16px 14px;aspect-ratio:1/0.95;max-width:100%}
-.skin .pic img{height:100%;max-height:220px;width:auto;max-width:100%;object-fit:contain;transition:transform .35s cubic-bezier(.3,1.6,.5,1)}
-.skin:hover .pic img{transform:translateY(-6px) rotate(-2deg)}
+.skins{display:flex;flex-wrap:wrap;justify-content:center;gap:18px;--cols:5}
+.skin{flex:0 0 calc((100% - (var(--cols) - 1) * 18px) / var(--cols));background:var(--surface);border:1px solid var(--line);border-radius:18px;overflow:hidden;display:flex;flex-direction:column}
+.skin .pic{background:var(--tint);aspect-ratio:292/236;max-width:100%;overflow:hidden}
+.skin .pic img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s ease}
+.skin:hover .pic img{transform:scale(1.05)}
 .skin .body{padding:16px 18px 20px;display:grid;gap:10px}
-.skin h3{font-size:20px;display:flex;align-items:baseline;gap:8px;flex-wrap:wrap;color:var(--deep)}
-.skin h3 span{font-family:var(--kr);font-size:12.5px;color:var(--muted)}
+.skin h3{font-size:22px;letter-spacing:.06em;display:flex;align-items:baseline;gap:8px;flex-wrap:wrap;color:var(--deep)}
+.skin h3 span{font-family:var(--body);font-size:11px;letter-spacing:.14em;text-transform:uppercase}
+.skin .quote{font-style:italic;font-size:13.5px;color:var(--muted);line-height:1.4}
+.skin .stype{justify-self:start;background:var(--tint);color:var(--deep);font-size:11px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;padding:4px 10px;border-radius:20px}
 .skin .lbl{font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
 .signs{margin:0;padding:0;list-style:none;display:grid;gap:3px;font-size:13.5px}
 .signs li{display:flex;gap:8px;align-items:baseline}
 .signs li::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--deep);opacity:.55;flex:none;transform:translateY(-2px)}
 .chips{display:flex;flex-wrap:wrap;gap:6px}
 .chips span{font-size:11.5px;border:1px solid var(--line);background:var(--tint);border-radius:20px;padding:2px 10px}
-@media (max-width:980px){.skins{grid-template-columns:repeat(2,1fr)}}
-@media (max-width:460px){.skins{gap:12px}.skin .pic{padding:14px 10px 8px}.skin .body{padding:12px 12px 16px}.skin h3{font-size:17px}}
+@media (max-width:1100px){.skins{--cols:3}}
+@media (max-width:700px){.skins{--cols:2}}
+@media (max-width:460px){.skins{--cols:1;gap:14px;max-width:340px;margin-inline:auto}.skin .body{padding:12px 12px 16px}.skin h3{font-size:17px}}
 
 /* brands */
 .brands{display:flex;flex-wrap:wrap;justify-content:center;padding:1px 0 0 1px;--cols:3;max-width:900px;margin-inline:auto}
@@ -417,8 +420,8 @@ footer{background:var(--band);border-top:1px solid var(--line)}
   <section class="skinband" id="skin">
     <div class="wrap">
       <div class="sec-head">
-        <h2>Not sure of your skin type?</h2>
-        <p>That's what the test is for. Here's what our advisors look for, and the ingredients they usually suggest.</p>
+        <h2>Which Yuna are you?</h2>
+        <p>Different skins, different stories. Meet the Yuna family, then find yours at the free skin test.</p>
       </div>
       <div class="skins" id="skins"></div>
     </div>
@@ -630,16 +633,19 @@ showCat('All');
 
 /* ---------- skin types ---------- */
 const skins=[
-  {n:'Dry skin',k:'건성',img:'skins/dry.png',alt:'Bunny',tint:'#FBE6D8',deep:'#8A4B32',signs:['Tightness','Flaking','Redness'],ing:['Hyaluronic acid','Ceramides','Ginseng']},
-  {n:'Oily skin',k:'지성',img:'skins/oily.png',alt:'Panda',tint:'#E3F1DC',deep:'#3F5A36',signs:['Excess sebum','Enlarged pores','Blemishes'],ing:['BHA','Niacinamide','Green tea']},
-  {n:'Dull skin',k:'칙칙한 피부',img:'skins/dull.png',alt:'Kitten',tint:'#EBE3F5',deep:'#5B3F78',signs:['Lack of radiance','Uneven texture','Uneven tone'],ing:['Vitamin C','Rice','AHA']},
-  {n:'Normal skin',k:'중성',img:'skins/normal.png',alt:'Lamb',tint:'#FCE4E8',deep:'#A3485E',signs:['Balanced','Soft and smooth','Good elasticity'],ing:['Centella','Peptides','SPF daily']}
+  {n:'Yuna',role:'The Explorer',type:'Normal to combination skin',img:'skins/yuna.jpg',quote:'I explore, I discover, I glow.',tint:'#FCE4E8',deep:'#A3485E',signs:['Pores visible on the T-zone','Occasional breakouts','Generally good balance'],ing:['Niacinamide','Hyaluronic acid','Centella asiatica','Green tea']},
+  {n:'Mina',role:'The Soft Glow',type:'Dry & sensitive skin',img:'skins/mina.jpg',quote:'I find beauty in the little things.',tint:'#E2ECF9',deep:'#3D5F92',signs:['Dryness & tightness','Redness','Sensitivity'],ing:['Hyaluronic acid','Ceramides','Panthenol','Madecassoside']},
+  {n:'Sora',role:'The Calm',type:'Sensitive & reactive skin',img:'skins/sora.jpg',quote:'I take care, I breathe, I shine.',tint:'#E3F1DC',deep:'#3F6A3A',signs:['Redness','Sensitivity','Occasional dry patches'],ing:['Centella asiatica','Aloe vera','Green tea','Beta-glucan']},
+  {n:'Nari',role:'The Reset',type:'Acne-prone skin',img:'skins/nari.jpg',quote:'I reset, I create, I evolve.',tint:'#ECE4F6',deep:'#62458A',signs:['Breakouts','Enlarged pores','Excess sebum'],ing:['Salicylic acid','Niacinamide','Tea tree','Zinc']},
+  {n:'Ara',role:'The Glow',type:'Oily & resilient skin',img:'skins/ara.jpg',quote:'I shine with my own energy.',tint:'#FCF0D6',deep:'#9A6A12',signs:['Excess sebum','Visible pores','Prone to blackheads'],ing:['Niacinamide','Green tea','Witch hazel','BHA']}
 ];
-$('skins').innerHTML=skins.map(s=>`<div class="skin" style="--tint:${s.tint};--deep:${s.deep}">
-  <div class="pic"><img src="${s.img}" alt="${s.alt}, the ${s.n.toLowerCase()} character" loading="lazy"></div>
-  <div class="body"><h3>${s.n} <span>${s.k}</span></h3>
+$('skins').innerHTML=skins.map(s=>`<article class="skin" style="--tint:${s.tint};--deep:${s.deep}">
+  <div class="pic"><img src="${s.img}" alt="${s.n}, ${s.role.toLowerCase()}" loading="lazy"></div>
+  <div class="body"><h3>${s.n.toUpperCase()} <span>${s.role}</span></h3>
+  <p class="quote">"${s.quote}"</p>
+  <span class="stype">${s.type}</span>
   <span class="lbl">Signs</span><ul class="signs">${s.signs.map(x=>`<li>${x}</li>`).join('')}</ul>
-  <span class="lbl">Our advisors suggest</span><div class="chips">${s.ing.map(i=>`<span>${i}</span>`).join('')}</div></div></div>`).join('');
+  <span class="lbl">Favourite ingredients</span><div class="chips">${s.ing.map(i=>`<span>${i}</span>`).join('')}</div></div></article>`).join('');
 
 /* ---------- brands ---------- */
 const brands=[
