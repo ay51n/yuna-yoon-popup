@@ -188,24 +188,52 @@ section.block{padding-block:64px}
 /* skin types */
 .skinband{background:var(--soft);border-block:1px solid var(--line);padding-block:64px}
 .skins{display:flex;flex-wrap:wrap;justify-content:center;gap:18px;--cols:5}
-.skin{flex:0 0 calc((100% - (var(--cols) - 1) * 18px) / var(--cols));background:var(--surface);border:1px solid var(--line);border-radius:18px;overflow:hidden;display:flex;flex-direction:column}
-.skin .pic{background:var(--tint);aspect-ratio:292/236;max-width:100%;overflow:hidden}
-.skin .pic img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s ease}
-.skin:hover .pic img{transform:scale(1.05)}
-.skin .body{padding:16px 18px 20px;display:grid;gap:10px}
-.skin h3{font-size:22px;letter-spacing:.06em;display:flex;align-items:baseline;gap:8px;flex-wrap:wrap;color:var(--deep)}
-.skin h3 span{font-family:var(--body);font-size:11px;letter-spacing:.14em;text-transform:uppercase}
-.skin .quote{font-style:italic;font-size:13.5px;color:var(--muted);line-height:1.4}
-.skin .stype{justify-self:start;background:var(--tint);color:var(--deep);font-size:11px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;padding:4px 10px;border-radius:20px}
-.skin .lbl{font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
-.signs{margin:0;padding:0;list-style:none;display:grid;gap:3px;font-size:13.5px}
+.skin{flex:0 0 calc((100% - (var(--cols) - 1) * 18px) / var(--cols));background:var(--surface);border:1px solid var(--line);border-radius:22px;overflow:hidden;display:flex;flex-direction:column;cursor:pointer;font:inherit;color:inherit;text-align:center;padding:0;transition:transform .25s,box-shadow .25s,border-color .25s}
+.skin:hover,.skin:focus-visible{transform:translateY(-4px);box-shadow:0 10px 24px rgba(143,107,107,.16);border-color:var(--deep)}
+.skin .pic{background:radial-gradient(circle at 50% 58%,var(--tint) 0 58%,transparent 59%);display:grid;place-items:center;padding:22px 18px 6px;aspect-ratio:1/0.92;max-width:100%}
+.skin .pic img{height:100%;width:auto;max-width:100%;object-fit:contain;transition:transform .35s cubic-bezier(.3,1.6,.5,1)}
+.skin:hover .pic img{transform:translateY(-6px) rotate(-2deg)}
+.skin .body{padding:6px 14px 20px;display:grid;gap:8px;justify-items:center}
+.skin h3{font-size:24px;letter-spacing:.1em;color:var(--deep);font-family:var(--display);font-weight:400}
+.stype{background:var(--tint);color:var(--deep);font-size:11px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;padding:4px 12px;border-radius:20px}
+.skin .more{font-size:12px;color:var(--muted)}
+.skin:hover .more{color:var(--deep);text-decoration:underline;text-underline-offset:3px}
+.signs{margin:0;padding:0;list-style:none;display:grid;gap:4px;font-size:14px}
 .signs li{display:flex;gap:8px;align-items:baseline}
 .signs li::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--deep);opacity:.55;flex:none;transform:translateY(-2px)}
 .chips{display:flex;flex-wrap:wrap;gap:6px}
-.chips span{font-size:11.5px;border:1px solid var(--line);background:var(--tint);border-radius:20px;padding:2px 10px}
+.chips span{font-size:12px;border:1px solid var(--line);background:var(--tint);border-radius:20px;padding:3px 11px}
+/* story dialog */
+dialog.story{border:0;padding:0;border-radius:24px;width:min(920px,calc(100% - 32px));max-height:calc(100% - 40px);background:var(--surface);color:var(--ink);box-shadow:0 24px 60px rgba(74,27,74,.25)}
+dialog.story::backdrop{background:rgba(58,34,48,.45);backdrop-filter:blur(3px)}
+.st-wrap{display:grid;grid-template-columns:300px 1fr;min-height:100%}
+.st-side{background:var(--tint);padding:34px 22px 24px;display:flex;flex-direction:column;align-items:center;gap:12px;text-align:center;position:sticky;top:0;align-self:start}
+.st-side img{width:100%;max-width:240px;height:auto}
+.st-side h2{font-size:34px;letter-spacing:.12em;color:var(--deep)}
+.st-side .role{font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--deep);opacity:.8;margin-top:-8px}
+.st-side .quote{font-style:italic;color:var(--deep);font-size:15px;line-height:1.4}
+.st-main{padding:30px 30px 28px;display:grid;gap:22px;align-content:start}
+.st-main h4{margin:0 0 8px;font-family:var(--body);font-weight:500;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+.st-id{display:flex;flex-wrap:wrap;gap:6px 14px;font-size:14px;align-items:baseline}
+.st-id b{font-weight:500;color:var(--deep);letter-spacing:.04em;text-transform:uppercase;font-size:13px}
+.st-desc{font-size:15px}
+.st-cols{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.goals{margin:0;padding:0;list-style:none;display:grid;gap:5px;font-size:14px}
+.goals li{display:flex;gap:8px}
+.goals li::before{content:"\2713";color:var(--deep);font-weight:700;flex:none}
+.picks{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:10px}
+.pick{border:1px solid var(--line);border-radius:14px;background:#fff;padding:10px;display:grid;gap:6px;align-content:start;color:#3A2230}
+.pick img{width:100%;aspect-ratio:1;object-fit:contain}
+.pick span{font-size:12px;line-height:1.3}
+.pick small{font-size:11.5px;color:#8F6B6B;font-variant-numeric:tabular-nums}
+.st-note{font-size:12px;color:var(--muted)}
+.st-close{position:absolute;top:12px;right:12px;width:38px;height:38px;border-radius:50%;border:1px solid var(--line);background:var(--surface);font-size:20px;line-height:1;display:grid;place-items:center;z-index:2}
+.st-close:hover{background:var(--soft)}
+.st-actions{display:flex;flex-wrap:wrap;gap:14px;align-items:center}
+@media (max-width:760px){.st-wrap{grid-template-columns:1fr}.st-side{position:static;padding:30px 20px 18px}.st-side img{max-width:170px}.st-main{padding:22px 18px 24px}.st-cols{grid-template-columns:1fr}}
 @media (max-width:1100px){.skins{--cols:3}}
 @media (max-width:700px){.skins{--cols:2}}
-@media (max-width:460px){.skins{--cols:1;gap:14px;max-width:340px;margin-inline:auto}.skin .body{padding:12px 12px 16px}.skin h3{font-size:17px}}
+@media (max-width:460px){.skins{gap:12px}.skin .body{padding:4px 8px 16px}.skin h3{font-size:19px}.stype{font-size:9.5px;padding:3px 8px}}
 
 /* brands */
 .brands{display:flex;flex-wrap:wrap;justify-content:center;padding:1px 0 0 1px;--cols:3;max-width:900px;margin-inline:auto}
@@ -495,6 +523,11 @@ footer{background:var(--band);border-top:1px solid var(--line)}
   </section>
 </main>
 
+<dialog class="story" id="story" aria-labelledby="stName">
+  <button class="st-close" type="button" id="stClose" aria-label="Close">&times;</button>
+  <div class="st-wrap" id="stBody"></div>
+</dialog>
+
 <footer>
   <div class="wrap foot">
     <a class="brand" href="#top"><img class="logo" src="logo.png" alt=""><span class="wordmark">yuna yoon<small>유나 윤 · K-BEAUTY POP-UP</small></span></a>
@@ -633,19 +666,77 @@ showCat('All');
 
 /* ---------- skin types ---------- */
 const skins=[
-  {n:'Yuna',role:'The Explorer',type:'Normal to combination skin',img:'skins/yuna.jpg',quote:'I explore, I discover, I glow.',tint:'#FCE4E8',deep:'#A3485E',signs:['Pores visible on the T-zone','Occasional breakouts','Generally good balance'],ing:['Niacinamide','Hyaluronic acid','Centella asiatica','Green tea']},
-  {n:'Mina',role:'The Soft Glow',type:'Dry & sensitive skin',img:'skins/mina.jpg',quote:'I find beauty in the little things.',tint:'#E2ECF9',deep:'#3D5F92',signs:['Dryness & tightness','Redness','Sensitivity'],ing:['Hyaluronic acid','Ceramides','Panthenol','Madecassoside']},
-  {n:'Sora',role:'The Calm',type:'Sensitive & reactive skin',img:'skins/sora.jpg',quote:'I take care, I breathe, I shine.',tint:'#E3F1DC',deep:'#3F6A3A',signs:['Redness','Sensitivity','Occasional dry patches'],ing:['Centella asiatica','Aloe vera','Green tea','Beta-glucan']},
-  {n:'Nari',role:'The Reset',type:'Acne-prone skin',img:'skins/nari.jpg',quote:'I reset, I create, I evolve.',tint:'#ECE4F6',deep:'#62458A',signs:['Breakouts','Enlarged pores','Excess sebum'],ing:['Salicylic acid','Niacinamide','Tea tree','Zinc']},
-  {n:'Ara',role:'The Glow',type:'Oily & resilient skin',img:'skins/ara.jpg',quote:'I shine with my own energy.',tint:'#FCF0D6',deep:'#9A6A12',signs:['Excess sebum','Visible pores','Prone to blackheads'],ing:['Niacinamide','Green tea','Witch hazel','BHA']}
+  {n:'Yuna',role:'The Explorer',type:'Normal to combination skin',img:'skins/yuna.png',quote:'I explore, I discover, I glow.',tint:'#FCE4E8',deep:'#A3485E',
+   job:'Travel content creator',age:25,city:'Paris & around the world',desc:'Balanced skin, sometimes shiny on the T-zone.',
+   traits:['Curious','Adventurous','Open-minded','Social'],life:['Travels often','Creates content','Loves cafés','Outdoor activities'],
+   signs:['Pores visible on the T-zone','Occasional breakouts','Generally good balance'],
+   goals:['Maintain healthy, glowing skin','Prevent early signs of ageing','Keep her skin balanced while travelling'],
+   ing:['Niacinamide','Hyaluronic acid','Centella asiatica','Green tea'],
+   picks:['TOSOWOONG Rice Glow','APLB Collagen EGF Peptide Mist','APLB Collagen EGF Peptide Facial Toner','TOSOWOONG Hyaluronic']},
+  {n:'Mina',role:'The Soft Glow',type:'Dry & sensitive skin',img:'skins/mina.png',quote:'I find beauty in the little things.',tint:'#E2ECF9',deep:'#3D5F92',
+   job:'Graphic designer',age:24,city:'Paris',desc:'Feels tight, can be reactive and easily dehydrated.',
+   traits:['Gentle','Romantic','Creative','Detail-oriented'],life:['Works on a laptop','Loves cosy spaces','Listens to music','Values self-care time'],
+   signs:['Dryness & tightness','Redness','Sensitivity'],
+   goals:['Deeply hydrate and strengthen the skin barrier','Soothe sensitivity and reduce redness','Achieve a soft, healthy glow'],
+   ing:['Hyaluronic acid','Ceramides','Panthenol','Madecassoside'],
+   picks:['ma:nyo Pure Soybean','TOSOWOONG Ceramide','APLB Spicule','TOSOWOONG Panthenol','ma:nyo Panthetoin','APLB Collagen EGF Peptide Facial Cream']},
+  {n:'Sora',role:'The Calm',type:'Sensitive & reactive skin',img:'skins/sora.png',quote:'I take care, I breathe, I shine.',tint:'#E3F1DC',deep:'#3F6A3A',
+   job:'Yoga instructor',age:28,city:'Paris',desc:'Reactive to stress, temperature changes or new products.',
+   traits:['Calm','Mindful','Natural','Balanced'],life:['Practises yoga & pilates','Loves nature','Eats healthy','Focuses on mental health'],
+   signs:['Redness','Sensitivity','Occasional dry patches'],
+   goals:['Soothe and reduce skin reactivity','Strengthen the skin barrier','Keep a clear, even complexion'],
+   ing:['Centella asiatica','Aloe vera','Green tea','Beta-glucan'],
+   picks:['ma:nyo Pure Soybean','APLB Collagen EGF Peptide Mist','APLB Collagen EGF Peptide Ampoule','TOSOWOONG Ceramide','TOSOWOONG Panthenol']},
+  {n:'Nari',role:'The Reset',type:'Acne-prone skin',img:'skins/nari.png',quote:'I reset, I create, I evolve.',tint:'#ECE4F6',deep:'#62458A',
+   job:'Photographer & content creator',age:26,city:'Paris',desc:'Prone to breakouts, especially on the T-zone and cheeks.',
+   traits:['Creative','Ambitious','Authentic','Trend-driven'],life:['Creates content','Irregular schedule','Loves bubble tea','Works out'],
+   signs:['Breakouts','Enlarged pores','Excess sebum'],
+   goals:['Reduce breakouts and inflammation','Control excess sebum','Achieve smoother, clearer skin'],
+   ing:['Salicylic acid','Niacinamide','Tea tree','Zinc'],
+   picks:['APLB Collagen EGF Peptide Facial Toner','TOSOWOONG Rice Glow','TOSOWOONG Alpha Arbutin','TOSOWOONG Hyaluronic']},
+  {n:'Ara',role:'The Glow',type:'Oily & resilient skin',img:'skins/ara.png',quote:'I shine with my own energy.',tint:'#FCF0D6',deep:'#9A6A12',
+   job:'Marketing specialist',age:27,city:'Paris',desc:'Tends to be shiny throughout the day, especially on the T-zone.',
+   traits:['Confident','Energetic','Stylish','Outgoing'],life:['Loves fashion','Social life','Gym & wellness','Time with friends'],
+   signs:['Excess sebum','Visible pores','Prone to blackheads'],
+   goals:['Control shine without drying the skin','Refine pores','Keep a fresh, long-lasting glow'],
+   ing:['Niacinamide','Green tea','Witch hazel','BHA'],
+   picks:['APLB Collagen EGF Peptide Facial Toner','TOSOWOONG Rice Glow','APLB Collagen EGF Peptide Mist','TOSOWOONG Arbutin 5%','TOSOWOONG Hyaluronic']}
 ];
-$('skins').innerHTML=skins.map(s=>`<article class="skin" style="--tint:${s.tint};--deep:${s.deep}">
-  <div class="pic"><img src="${s.img}" alt="${s.n}, ${s.role.toLowerCase()}" loading="lazy"></div>
-  <div class="body"><h3>${s.n.toUpperCase()} <span>${s.role}</span></h3>
-  <p class="quote">"${s.quote}"</p>
-  <span class="stype">${s.type}</span>
-  <span class="lbl">Signs</span><ul class="signs">${s.signs.map(x=>`<li>${x}</li>`).join('')}</ul>
-  <span class="lbl">Favourite ingredients</span><div class="chips">${s.ing.map(i=>`<span>${i}</span>`).join('')}</div></div></article>`).join('');
+$('skins').innerHTML=skins.map((s,i)=>`<button type="button" class="skin" data-i="${i}" style="--tint:${s.tint};--deep:${s.deep}" aria-haspopup="dialog">
+  <span class="pic"><img src="${s.img}" alt="${s.n}" loading="lazy"></span>
+  <span class="body"><h3>${s.n.toUpperCase()}</h3><span class="stype">${s.type}</span><span class="more">Discover her story &rarr;</span></span></button>`).join('');
+const story=$('story');
+function openStory(i){
+  const s=skins[i];
+  const picks=s.picks.map(byName).filter(Boolean);
+  const li=a=>a.map(x=>`<li>${x}</li>`).join('');
+  story.style.setProperty('--tint',s.tint);story.style.setProperty('--deep',s.deep);
+  $('stBody').innerHTML=`<aside class="st-side"><img src="${s.img}" alt="">
+    <h2 id="stName">${s.n.toUpperCase()}</h2><span class="role">${s.role}</span>
+    <span class="stype" style="background:#fff">${s.type}</span><p class="quote">"${s.quote}"</p></aside>
+  <div class="st-main">
+    <section><h4>Her story</h4><div class="st-id"><b>${s.job}</b><span>${s.age} years old</span><span>${s.city}</span></div>
+      <div class="chips" style="margin-top:10px">${s.traits.map(t=>`<span>${t}</span>`).join('')}</div></section>
+    <div class="st-cols">
+      <section><h4>Her skin</h4><p class="st-desc">${s.desc}</p><ul class="signs" style="margin-top:8px">${li(s.signs)}</ul></section>
+      <section><h4>Lifestyle &amp; habits</h4><ul class="signs">${li(s.life)}</ul></section>
+    </div>
+    <div class="st-cols">
+      <section><h4>Skincare goals</h4><ul class="goals">${li(s.goals)}</ul></section>
+      <section><h4>Favourite ingredients</h4><div class="chips">${s.ing.map(x=>`<span>${x}</span>`).join('')}</div></section>
+    </div>
+    <section><h4>Products for ${s.type.toLowerCase()}</h4>
+      <div class="picks">${picks.map(p=>`<div class="pick"><img src="${p.img}" alt="" loading="lazy"><span>${p.name}</span><small>${p.price||'Price soon'}</small></div>`).join('')}</div>
+      <p class="st-note" style="margin-top:8px">Our advisors confirm the right routine for you at the free skin test.</p></section>
+    <div class="st-actions"><a class="btn" href="#register" id="stBook">Book my free skin test</a></div>
+  </div>`;
+  if(story.showModal)story.showModal();else story.setAttribute('open','');
+  story.scrollTop=0;
+}
+function closeStory(){if(story.close)story.close();else story.removeAttribute('open');}
+$('skins').addEventListener('click',e=>{const b=e.target.closest('.skin');if(b)openStory(+b.dataset.i);});
+$('stClose').addEventListener('click',closeStory);
+story.addEventListener('click',e=>{if(e.target===story||e.target.id==='stBook')closeStory();});
 
 /* ---------- brands ---------- */
 const brands=[
