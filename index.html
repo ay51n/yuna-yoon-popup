@@ -596,6 +596,13 @@ const products=[
   {cat:'Toners & Essences',name:'APLB Collagen EGF Peptide Mist Essence 105 ml',origin:'APLB',for:'Sensitive, dull',price:'€14.91',img:'products/aplb-egf-mist.jpg'},
   {cat:'Toners & Essences',name:'APLB Collagen EGF Peptide Facial Toner 160 ml',origin:'APLB',for:'Dull, enlarged pores',price:'€14.91',img:'products/aplb-egf-toner.jpg'},
   {cat:'Moisturisers',name:'ma:nyo Panthetoin Cream 80 ml',origin:'ma:nyo',for:'Dry, sensitive',price:'',img:'products/manyo-panthetoin-cream.png',tag:'New'},
+  {cat:'Cleansers',name:'ma:nyo Pure Soybean Cleansing Milk 200 ml',origin:'ma:nyo',for:'Dry, sensitive',price:'',img:'products/manyo-pure-soybean-cleansing-milk.png'},
+  {cat:'Toners & Essences',name:'TOSOWOONG Rice Glow Milky Toner 250 ml',origin:'TOSOWOONG',for:'Dull, dry',price:'',img:'products/tosowoong-rice-glow-milky-toner.webp'},
+  {cat:'Toners & Essences',name:'TOSOWOONG Ceramide Toner',origin:'TOSOWOONG',for:'Dry, sensitive',price:'',img:'products/tosowoong-ceramide-toner.webp'},
+  {cat:'Serums',name:'TOSOWOONG Alpha Arbutin 2% Rice Serum',origin:'TOSOWOONG',for:'Dark spots, uneven tone',price:'',img:'products/tosowoong-alpha-arbutin-2-rice-serum.webp'},
+  {cat:'Moisturisers',name:'TOSOWOONG Arbutin 5% Whitening Cream 50 ml',origin:'TOSOWOONG',for:'Dark spots, dull',price:'',img:'products/tosowoong-arbutin-5-whitening-cream.jpg'},
+  {cat:'Moisturisers',name:'TOSOWOONG Panthenol 20 Barrier Cream 50 ml',origin:'TOSOWOONG',for:'Dry, sensitive',price:'',img:'products/tosowoong-panthenol-20-barrier-cream.webp'},
+  {cat:'Moisturisers',name:'TOSOWOONG Hyaluronic Acid 9 Cream 50 ml',origin:'TOSOWOONG',for:'Dry, dehydrated',price:'',img:'products/tosowoong-hyaluronic-acid-9-cream.webp'},
   {cat:'Cleansers',name:'Rice Water Low-pH Foaming Cleanser 150ml',origin:'Seoul',for:'All skin types',price:'€16',shape:'tube',bg:'#FCECEF',kr:'쌀',en:'RICE',c:{body:'#FFF8F5',cap:'#D9A6A6',label:'#FCECEF'}},
   {cat:'Toners & Essences',name:'Snail Mucin 96% Power Essence 100ml',origin:'Busan',for:'Dry, dull',price:'€22.50',shape:'pump',bg:'#F4E4D8',kr:'달팽이',en:'SNAIL 96',c:{body:'#FFFFFF',cap:'#8F6B6B',label:'#FCECEF'},tag:'Best seller'},
   {cat:'Serums',name:'Centella Calming Ampoule 30ml',origin:'Jeju',for:'Sensitive, acne-prone',price:'€24',shape:'dropper',bg:'#F4C2C2',kr:'병풀',en:'CICA',c:{body:'#E9F0E4',cap:'#4A1B4A',label:'#FFF8F5'}},
@@ -643,7 +650,7 @@ $('skins').innerHTML=skins.map(s=>`<div class="skin" style="--tint:${s.tint};--d
 
 /* ---------- brands ---------- */
 const brands=[['Anua','아누아',1],['APLB','에이피엘비',1],['Beauty of Joseon','조선미녀',3],['COSRX','코스알엑스',1],['Etude','에뛰드',2],['Innisfree','이니스프리',3],['Laneige','라네즈',1],['ma:nyo','마녀공장',2],
-  ['Mediheal','메디힐',2],['Missha','미샤',1],['rom&nd','롬앤',4],['Round Lab','라운드랩',3],['SKIN1004','스킨1004',1],['Torriden','토리든',3]];
+  ['Mediheal','메디힐',2],['Missha','미샤',1],['rom&nd','롬앤',4],['Round Lab','라운드랩',3],['SKIN1004','스킨1004',1],['TOSOWOONG','토소웅',1],['Torriden','토리든',3]];
 $('brandGrid').innerHTML=brands.map(b=>`<div class="brand-tile"><b class="bf${b[2]}">${b[0]}</b><span class="k">${b[1]}</span></div>`).join('');
 
 /* ---------- decorative art ---------- */
