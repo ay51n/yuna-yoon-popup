@@ -171,7 +171,7 @@ section.block{padding-block:64px}
 .prod .img{aspect-ratio:1;max-width:100%;position:relative;border-bottom:1px solid var(--line);overflow:hidden}
 .prod .img svg{width:100%;height:100%;display:block;transition:transform .4s}
 .prod .img.photo{background:#FFFFFF}
-.prod .img img{width:100%;height:100%;object-fit:contain;padding:8%;display:block;transition:transform .4s}
+.prod .img img{position:absolute;inset:8%;width:84%;height:84%;object-fit:contain;display:block;transition:transform .4s}
 .prod:hover .img img{transform:scale(1.04)}
 .prod:hover .img svg{transform:scale(1.04)}
 .tag{position:absolute;top:10px;left:10px;background:var(--plum);color:#FCECEF;font-size:10px;letter-spacing:.1em;padding:2px 8px;text-transform:uppercase}
@@ -180,6 +180,8 @@ section.block{padding-block:64px}
 .prod h3{font-size:14px;line-height:1.35;font-family:var(--body)}
 .prod .for{font-size:12px;color:var(--muted)}
 .prod .price{margin-top:auto;padding-top:8px;font-size:13px;font-variant-numeric:tabular-nums;display:flex;justify-content:space-between;gap:8px}
+.prod .price{flex-wrap:wrap;align-items:baseline;gap:2px 8px}
+.prod .price span{white-space:nowrap}
 .prod .price span{color:var(--muted);font-size:11px;letter-spacing:.08em;text-transform:uppercase;align-self:center}
 @media (max-width:900px){.grid{--cols:3}}
 @media (max-width:600px){.grid{--cols:2}}
@@ -255,7 +257,7 @@ dialog.story::backdrop{background:rgba(58,34,48,.45);backdrop-filter:blur(3px)}
 .promo-art{align-self:stretch;position:relative;min-height:260px}
 .promo-blossoms{position:absolute;inset:0;z-index:0;width:100%;height:100%;pointer-events:none}
 .snap{position:absolute;z-index:1;margin:0;width:38%;max-width:220px;aspect-ratio:1;background:#fff;border:1px solid var(--line);border-radius:14px;padding:4%;box-shadow:6px 8px 0 var(--rose);transform:rotate(var(--r))}
-.snap img{width:100%;height:100%;object-fit:contain;display:block}
+.snap img{position:absolute;inset:6%;width:88%;height:88%;object-fit:contain;display:block}
 .snap1{left:6%;top:12%}.snap2{left:34%;top:30%;z-index:2}.snap3{right:4%;top:6%}
 @media (max-width:760px){.promo-art{min-height:240px}.snap{width:36%}}
 @media (max-width:760px){.promo-grid{grid-template-columns:1fr;gap:0}.promo-copy{padding-bottom:8px}}
