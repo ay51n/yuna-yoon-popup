@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="description" content="Yuna Yoon K-beauty pop-up store at Miku's House, 1 March – 30 April 2027. Register for your free skin test.">
+<meta name="description" content="Yuna Yoon K-beauty pop-up store at 3 rue d'Alexandrie, Paris 2e, 1 March – 30 April 2027. Register for your free skin test.">
 <title>Yuna Yoon</title>
 <link rel="icon" type="image/png" href="favicon.png">
 <meta property="og:image" content="logo.png">
@@ -328,7 +328,7 @@ footer{background:var(--band);border-top:1px solid var(--line)}
   </defs>
 </svg>
 
-<div class="topbar">Yuna Yoon pop-up store · 1 March – 30 April 2027 · Miku's House · Free entry, free skin test</div>
+<div class="topbar">Yuna Yoon pop-up store · 1 March – 30 April 2027 · 3 rue d'Alexandrie, Paris 2e · Free entry, free skin test</div>
 
 <header class="site">
   <div class="wrap hdr">
@@ -358,7 +358,7 @@ footer{background:var(--band);border-top:1px solid var(--line)}
         <span class="eyebrow">Pop-up store · <span class="kr">팝업 스토어</span></span>
         <h1>Book your <em>free skin test</em> at the Yuna Yoon pop-up</h1>
         <p class="lede">From 1 March to 30 April, we're bringing our favourite Korean skincare to one room. Register now, meet a skin advisor, and leave with a routine made for your skin.</p>
-        <div class="facts"><span>1 Mar – 30 Apr 2027</span><span>Every day 11:00 – 19:00</span><span>Miku's House</span></div>
+        <div class="facts"><span>1 Mar – 30 Apr 2027</span><span>Every day 11:00 – 19:00</span><span>3 rue d'Alexandrie, Paris 2e</span></div>
         <div class="countdown">
           <span class="cd-label" id="cdLabel">The pop-up opens in</span>
           <div class="cd" data-cd>
@@ -367,7 +367,7 @@ footer{background:var(--band);border-top:1px solid var(--line)}
             <div><b data-u="m">00</b><small>Min</small></div>
             <div><b data-u="s">00</b><small>Sec</small></div>
           </div>
-          <span class="cd-note" id="cdNote">Opening Monday 1 March 2027 at 11:00, at Miku's House.</span>
+          <span class="cd-note" id="cdNote">Opening Monday 1 March 2027 at 11:00, at 3 rue d'Alexandrie, Paris 2e.</span>
         </div>
       </div>
 
@@ -489,7 +489,7 @@ footer{background:var(--band);border-top:1px solid var(--line)}
         <dl class="ev-facts">
           <div><dt>Dates</dt><dd>Monday 1 March – Friday 30 April 2027</dd></div>
           <div><dt>Hours</dt><dd>Every day, 11:00 – 19:00. Last skin test at 18:30.</dd></div>
-          <div><dt>Where</dt><dd>Miku's House</dd></div>
+          <div><dt>Where</dt><dd>3 rue d'Alexandrie, 75002 Paris<br><a href="https://www.google.com/maps/search/?api=1&amp;query=3+rue+d%27Alexandrie+75002+Paris" target="_blank" rel="noopener" style="color:var(--mauve);text-decoration:underline;text-underline-offset:3px;font-size:13px">Open in Google Maps</a></dd></div>
           <div><dt>Entry</dt><dd>Free. Registered guests skip the queue.</dd></div>
           <div><dt>Payment</dt><dd>Card and cash accepted at the pop-up</dd></div>
         </dl>
@@ -517,7 +517,7 @@ footer{background:var(--band);border-top:1px solid var(--line)}
         <div><b data-u="m">00</b><small>Min</small></div>
         <div><b data-u="s">00</b><small>Sec</small></div>
       </div>
-      <p id="cdCta">until we open at Miku's House</p>
+      <p id="cdCta">until we open in Paris 2e</p>
       <a class="btn" href="#register">Book my free skin test</a>
     </div>
   </section>
@@ -572,7 +572,7 @@ function setPhase(p){
   if(phase===p)return;phase=p;
   if(p==='open'){
     $('cdLabel').textContent="We're open now · closing in";
-    $('cdNote').textContent="Every day 11:00 – 19:00 at Miku's House, until Friday 30 April.";
+    $('cdNote').textContent="Every day 11:00 – 19:00 at 3 rue d'Alexandrie, until Friday 30 April.";
     $('cdCta').textContent='left to visit the pop-up';
     const today=new Date().toLocaleDateString('en-CA',{timeZone:'Europe/Paris'});
     if(today>$('rDay').min)$('rDay').min=today;
@@ -581,7 +581,7 @@ function setPhase(p){
 function closeRegistration(){
   closed=true;
   $('cdLabel').textContent='The pop-up has ended';
-  $('cdNote').textContent='Thank you for visiting Yuna Yoon at Miku\'s House!';
+  $('cdNote').textContent='Thank you for visiting Yuna Yoon in Paris!';
   $('cdCta').textContent='See you at the next pop-up';
   $('rSubmit').disabled=true;$('rSubmit').textContent='Registration closed';
 }

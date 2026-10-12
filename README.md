@@ -1,6 +1,6 @@
 # Yuna Yoon · K-beauty pop-up
 
-Landing page for the Yuna Yoon Korean skincare pop-up store at Miku's House (1 March – 30 April 2027):
+Landing page for the Yuna Yoon Korean skincare pop-up store at 3 rue d'Alexandrie, 75002 Paris (1 March – 30 April 2027):
 free skin-test registration, a registration countdown, and a preview of the products and brands we're bringing.
 
 Everything is in one file, `index.html`. No build step.
